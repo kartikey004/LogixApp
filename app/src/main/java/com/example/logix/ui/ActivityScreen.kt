@@ -145,9 +145,9 @@ fun ActivityFeedCard(
     val isDarkTheme = isSystemInDarkTheme()
 
     val textColor = if (isDarkTheme) {
-        Color(0xFFF4E1C1) // Light text on dark background
+        Color(0xFFF4E1C1)
     } else {
-        MaterialTheme.colorScheme.onPrimary // Dark text on light background (you can modify this for contrast)
+        MaterialTheme.colorScheme.onPrimary
     }
 
     Row(
@@ -207,10 +207,9 @@ fun ActivityFeedSubject(
         Column {
             Text(
                 text = stringResource(id = R.string.discover),
-                fontSize = 40.sp, // Set the font size
-                fontWeight = FontWeight.Bold, // Optional: Set font weight
-                fontFamily = FontFamily.Serif, // Optional: Set font family
-//                style = TextStyle(color = MaterialTheme.colorScheme.primary), // Optional: Combine styles
+                fontSize = 40.sp,
+                fontWeight = FontWeight.Bold,
+                fontFamily = FontFamily.Serif,
                 modifier = Modifier
             )
             Text(
@@ -234,11 +233,11 @@ fun ActivityTopBar(
 
     val isDarkTheme = isSystemInDarkTheme()
 
-    // Define button text color based on the theme
+
     val textColor = if (isDarkTheme) {
-        Color(0xFFF4E1C1) // Light text on dark background
+        Color(0xFFF4E1C1)
     } else {
-        MaterialTheme.colorScheme.onPrimary // Dark text on light background (you can modify this for contrast)
+        MaterialTheme.colorScheme.onPrimary
     }
 
     Box(

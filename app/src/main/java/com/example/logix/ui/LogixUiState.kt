@@ -1,4 +1,3 @@
-// LogixUiState.kt
 package com.example.logix.ui
 
 import androidx.compose.runtime.getValue
@@ -22,22 +21,18 @@ class LogixUiState {
         return email.isNotEmpty() && password.isNotEmpty()
     }
 
-    // Function to handle login success
     fun onLoginSuccess(navController: NavController) {
         navController.navigate("activity_screen")
     }
 
-    // Function to update login state
     fun updateLoginState(email: String, password: String) {
         loginUiState = loginUiState.copy(email = email, password = password)
     }
 
-    // Function to reset login error
     fun resetLoginError() {
         loginUiState = loginUiState.copy(loginError = false)
     }
 
-    // Function to show login error
     fun showLoginError() {
         loginUiState = loginUiState.copy(loginError = true)
     }

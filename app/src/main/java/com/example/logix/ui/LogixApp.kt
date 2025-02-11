@@ -1,4 +1,3 @@
-// LogixApp.kt
 package com.example.logix.ui
 
 import androidx.compose.foundation.layout.*
@@ -15,28 +14,24 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.logix.data.LogixActivityData
-import com.example.logix.ui.viewmodel.LogixViewModel
 
 @Composable
 fun LogixApp() {
-    // Initialize NavController
+
     val navController = rememberNavController()
 
-    // Access the LogixViewModel
     val logixViewModel: LogixViewModel = viewModel()
 
-    // Observe the login state
     val isLoggedIn = logixViewModel.userLoggedIn.observeAsState(false)
 
-    // Define the navigation graph
     NavHost(navController = navController, startDestination = "login") {
 
         composable("login") {
-            // LoginScreen will be shown if the user is not logged in
+
             LoginScreen(
                 onLoginSuccess = {
-                    logixViewModel.loginUser() // Call login function
-                    navController.navigate("activity") // Navigate to HomeScreen after login success
+                    logixViewModel.loginUser()
+                    navController.navigate("activity")
                 },
                 onSignUpClick = {},
                 onForgotPasswordClick = {}
@@ -53,7 +48,7 @@ fun LogixApp() {
         }
 
         composable("home") {
-            // HomeScreen will be shown after login success
+
             HomeScreen(logixViewModel = logixViewModel, navController = navController)
         }
     }
@@ -68,8 +63,8 @@ fun HomeScreen(logixViewModel: LogixViewModel, navController: NavController) {
 
         Button(
             onClick = {
-                logixViewModel.logoutUser() // Trigger logout
-                navController.navigate("login") // Navigate back to login screen on logout
+                logixViewModel.logoutUser()
+                navController.navigate("login")
             },
             modifier = Modifier.padding(top = 16.dp)
         ) {

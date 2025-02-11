@@ -1,9 +1,18 @@
 package com.example.logix.ui
 
 import androidx.annotation.StringRes
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
@@ -11,8 +20,24 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Lock
-import androidx.compose.material3.*
-import androidx.compose.runtime.*
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
+import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -47,22 +72,19 @@ fun LoginScreen(
         ) {
             LoginInput(
                 onLoginSuccess = onLoginSuccess,
-                onForgotPasswordClick = onForgotPasswordClick,  // Pass forgot password action
-                onSignUpClick = onSignUpClick  // Pass sign-up action
+                onForgotPasswordClick = onForgotPasswordClick,
+                onSignUpClick = onSignUpClick
             )
         }
     }
 }
 
-
-
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun LoginInput(
     modifier: Modifier = Modifier,
     onLoginSuccess: () -> Unit,
-    onForgotPasswordClick: () -> Unit,  // New onClick for forgot password
-    onSignUpClick: () -> Unit  // New onClick for signup
+    onForgotPasswordClick: () -> Unit,
+    onSignUpClick: () -> Unit
 ) {
     var emailInput by remember { mutableStateOf("") }
     var passwordInput by remember { mutableStateOf("") }
@@ -87,7 +109,7 @@ fun LoginInput(
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            // Email Input Field
+
             EditEmailField(
                 label = R.string.email,
                 leadingIcon = Icons.Filled.Email,
@@ -101,7 +123,7 @@ fun LoginInput(
 
             Spacer(modifier = Modifier.height(12.dp))
 
-            // Password Input Field
+
             EditPasswordField(
                 label = R.string.password,
                 leadingIcon = Icons.Filled.Lock,
@@ -113,7 +135,7 @@ fun LoginInput(
                 )
             )
 
-            // Sign Up and Forgot Password Row
+
             Spacer(modifier = Modifier.height(8.dp))
 
             Row(
@@ -121,7 +143,7 @@ fun LoginInput(
                 verticalAlignment = Alignment.CenterVertically,
                 modifier = Modifier.fillMaxWidth()
             ) {
-                TextButton(onClick = onForgotPasswordClick) {  // Calling the passed function
+                TextButton(onClick = onForgotPasswordClick) {
                     Text(
                         text = stringResource(id = R.string.forgot_password),
                         style = MaterialTheme.typography.bodyMedium,
@@ -132,7 +154,7 @@ fun LoginInput(
             }
 
 
-            // Login Button
+
             LoginButton(
                 emailInput = emailInput,
                 passwordInput = passwordInput,
@@ -146,7 +168,6 @@ fun LoginInput(
                 }
             )
 
-            // Error Message
             if (logixUiState.loginUiState.loginError) {
                 Text(
                     text = stringResource(id = R.string.error_invalid_credentials),
