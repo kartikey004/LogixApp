@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="field_spacing">4dp</dimen>
+    <dimen name="spacing_heading_fields">8dp</dimen>
+    <dimen name="button_corners">8dp</dimen>
+    <dimen name="top_bar_padding">120dp</dimen>
+
+</resources>
