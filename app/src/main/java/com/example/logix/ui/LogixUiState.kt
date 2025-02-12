@@ -15,25 +15,8 @@ data class LoginUiState(
 class LogixUiState {
     var loginUiState by mutableStateOf(LoginUiState())
 
-    // Function to validate credentials
     fun validateCredentials(email: String, password: String): Boolean {
-        // Add logic for actual validation
         return email.isNotEmpty() && password.isNotEmpty()
     }
 
-    fun onLoginSuccess(navController: NavController) {
-        navController.navigate("activity_screen")
-    }
-
-    fun updateLoginState(email: String, password: String) {
-        loginUiState = loginUiState.copy(email = email, password = password)
-    }
-
-    fun resetLoginError() {
-        loginUiState = loginUiState.copy(loginError = false)
-    }
-
-    fun showLoginError() {
-        loginUiState = loginUiState.copy(loginError = true)
-    }
 }

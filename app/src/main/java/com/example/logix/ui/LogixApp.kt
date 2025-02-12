@@ -27,7 +27,6 @@ fun LogixApp() {
     NavHost(navController = navController, startDestination = "login") {
 
         composable("login") {
-
             LoginScreen(
                 onLoginSuccess = {
                     logixViewModel.loginUser()
@@ -43,12 +42,12 @@ fun LogixApp() {
                 logixItem = LogixActivityData.ActivityData,
                 navController = navController,
                 onBackButtonPressed = {
-                    navController.navigate("home")}
+                    navController.navigate("home")
+                }
             )
         }
 
         composable("home") {
-
             HomeScreen(logixViewModel = logixViewModel, navController = navController)
         }
     }
@@ -60,7 +59,6 @@ fun HomeScreen(logixViewModel: LogixViewModel, navController: NavController) {
         .fillMaxSize()
         .padding(16.dp)) {
         Text("Welcome, ${logixViewModel.email.value ?: "User"}!")
-
         Button(
             onClick = {
                 logixViewModel.logoutUser()

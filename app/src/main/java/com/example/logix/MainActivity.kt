@@ -12,7 +12,6 @@ import com.example.logix.ui.theme.LogixTheme
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setContent {
             LogixTheme {
                 Surface(

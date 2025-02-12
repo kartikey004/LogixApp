@@ -153,8 +153,6 @@ fun LoginInput(
                 }
             }
 
-
-
             LoginButton(
                 emailInput = emailInput,
                 passwordInput = passwordInput,
@@ -295,7 +293,6 @@ fun LoginButton(
     val isDarkTheme = isSystemInDarkTheme()
 
     val isEnabled = emailInput.isNotEmpty() && passwordInput.isNotEmpty()
-    // Set button colors dynamically
     val buttonColor = if (isEnabled) MaterialTheme.colorScheme.primary else Color.Gray
     val textColor = if (isDarkTheme) Color.Black else MaterialTheme.colorScheme.onPrimary
 

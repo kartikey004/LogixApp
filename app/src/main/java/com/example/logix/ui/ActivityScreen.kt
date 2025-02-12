@@ -52,12 +52,14 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.logix.R
 import com.example.logix.data.LogixItem
 import com.example.logix.data.searchOptions
+import com.example.logix.ui.theme.LogixTheme
 
 @Composable
 fun ActivityScreen (
@@ -266,7 +268,8 @@ fun ActivityTopBar(
                 fontWeight = FontWeight.Bold,
                 fontFamily = FontFamily.Serif,
                 modifier = Modifier
-                    .padding(horizontal = 124.dp)
+                    .weight(1f)
+                    .padding(horizontal = 90.dp)
            )
 
 //            Spacer(modifier = Modifier.width(100.dp))
@@ -390,16 +393,16 @@ fun SearchOptions(
 
 
 
-//
-//@Preview (showBackground = true)
-//@Composable
-//private fun ActivityTopBarPreview() {
-//    LogixTheme {
-//        ActivityTopBar {
-//
-//        }
-//    }
-//}
+
+@Preview(showBackground = true)
+@Composable
+private fun ActivityTopBarPreview() {
+    LogixTheme {
+        ActivityTopBar {
+
+        }
+    }
+}
 //
 //@Preview (showBackground = true)
 //@Composable
